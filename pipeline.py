@@ -7,7 +7,14 @@ import requests
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 API_URL = "https://api.obis.org/v3/occurrence"
-ESPECIES = ["Delphinus delphis", "Caretta caretta", "Balaenoptera physalus"]
+ESPECIES = [
+    "Delphinus delphis",       # delfín común
+    "Caretta caretta",         # tortuga boba
+    "Balaenoptera physalus",   # rorcual común
+    "Tursiops truncatus",      # delfín mular
+    "Physeter macrocephalus",  # cachalote
+    "Chelonia mydas",          # tortuga verde
+]
 
 
 def fetch_sightings(especie, reintentos=3):
