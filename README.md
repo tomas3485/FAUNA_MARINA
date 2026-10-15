@@ -12,6 +12,18 @@ reintentos y una espera creciente.
 
 en informe.py, uso pandas para procesar los datos y registralos por especie y mes.
 
+--Ejecución--
 
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 
+python pipeline.py   
+python informe.py    
+```
+--Fuente de Datos-- 
+
+[OBIS - Ocean Biodiversity Information System](https://obis.org). Cada conjunto
+de datos tiene su propia licencia, indicada en el campo `license` de cada registro.
 
