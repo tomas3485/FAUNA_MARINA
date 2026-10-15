@@ -6,11 +6,11 @@ from openpyxl.chart import BarChart, Reference
 conn = sqlite3.connect("fauna_marina.db")
 df = pd.read_sql("SELECT * FROM avistamientos", conn)
 
-# Limpiar fechas: las que no se puedan interpretar se descartan
+
 df["fecha"] = pd.to_datetime(df["fecha"], errors="coerce", utc=True, format="mixed")
 df = df.dropna(subset=["fecha"])
 df["mes"] = df["fecha"].dt.strftime("%Y-%m")
-df["fecha"] = df["fecha"].dt.tz_localize(None)  # Excel no admite zonas horarias
+df["fecha"] = df["fecha"].dt.tz_localize(None) 
 
 resumen = df.groupby("especie").size().reset_index(name="registros")
 por_mes = df.groupby(["mes", "especie"]).size().reset_index(name="registros")

@@ -47,7 +47,7 @@ def save(conn, especie, resultados):
     nuevos = 0
     for r in resultados:
         if "id" not in r or r.get("decimalLatitude") is None:
-            continue  # validación básica: descartar datos incompletos
+            continue  
         cur = conn.execute(
             "INSERT OR IGNORE INTO avistamientos VALUES (?,?,?,?,?)",
             (r["id"], especie, r.get("eventDate"), r["decimalLatitude"], r["decimalLongitude"]),
